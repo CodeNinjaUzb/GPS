@@ -1,0 +1,30 @@
+.datepicker{
+     text-align: center; 
+}
+.report-table-head{
+     grid-template-columns: 14% 14% 14% 14% 14% 14% 14%;
+}
+.report-table-body{
+     height: 450px;
+     overflow: hidden;
+     overflow-y: scroll;
+}
+.report-table-row{
+     grid-template-columns: 14% 14% 14% 14% 14% 14% 14%;
+}
+th{
+     border: none !important;
+}
+td{
+     border: none !important;
+     display: flex;
+     align-items: center;
+     font-weight: bold;
+     justify-content: center;
+}
+Link{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin: 0;
+}

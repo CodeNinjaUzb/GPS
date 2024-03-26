@@ -1,0 +1,14 @@
+.table-head{
+      grid-template-columns: 25% 25% 25% 25%;
+}
+.table-body{
+      height: 450px;
+      overflow: hidden;
+      overflow-y: scroll;
+}
+.table-row{
+      grid-template-columns: 25% 25% 25% 25%;
+}
+th{
+      border: none !important;
+}
