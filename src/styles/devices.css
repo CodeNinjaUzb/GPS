@@ -1,5 +1,5 @@
 .table-head{
-      grid-template-columns: 25% 25% 25% 25%;
+      grid-template-columns: 20% 20% 20% 20% 20%;
 }
 .table-body{
       height: 450px;
@@ -7,8 +7,11 @@
       overflow-y: scroll;
 }
 .table-row{
-      grid-template-columns: 25% 25% 25% 25%;
+      grid-template-columns: 20% 20% 20% 20% 20%;
 }
 th{
       border: none !important;
+}
+i{
+      cursor: pointer;
 }
