@@ -15,7 +15,7 @@ function Sidebar() {
                   </div>
                  <div className="item d-flex align-items-center gap-3 bg-light ps-5 pe-5 pt-1 pb-1 rounded-3">
                         <i className="fa-solid fa-chart-simple text-primary "></i>
-                        <Link className='text-primary text-decoration-none fw-bold' to="/events">Xisobot</Link>     
+                        <Link className='text-primary text-decoration-none fw-bold' to="/reports">Xisobot</Link>     
                   </div>
             </div> 
             <div className="log-out">

@@ -1,10 +1,14 @@
 import { Route, Routes } from 'react-router-dom'
 import Login from './pages/Login'
-import './styles/App.css'
 import Home from './pages/Home'
 import Devices from './pages/Devices'
 import Report from './pages/Report'
-import Edit from './components/DeviceEditModal'
+import './styles/App.css'
+import RouteDevice from './pages/reports/Route'
+import TripDevice from './pages/reports/Trip'
+import EventDevice from './pages/reports/Event'
+import StopDevice from './pages/reports/Stop'
+import SummaryDevice from './pages/reports/Summary'
 
 function App() {
 
@@ -31,16 +35,19 @@ function App() {
       });
   }
 
-  const id = 0
-
   return (
     <div className='App'>
       <Routes>
         <Route path='/login' element={<Login />}/>
         <Route path='/' element={<Home />}>
           <Route path='/devices' element={<Devices />}/>
-          <Route path='/events' element={<Report />}/>
-          <Route path={`/report/${id}`}/>
+          <Route path='/reports' element={<Report />}>
+            <Route path='/reports/route' element={<RouteDevice />}/>
+            <Route path='/reports/event' element={<EventDevice />}/>
+            <Route path='/reports/trip' element={<TripDevice />}/>
+            <Route path='/reports/stop' element={<StopDevice />}/>
+            <Route path='/reports/summary' element={<SummaryDevice />}/>
+          </Route>
         </Route>
       </Routes>
         
