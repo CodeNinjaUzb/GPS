@@ -3,11 +3,13 @@ import '../styles/devices.css'
 import axios from 'axios';
 import Edit from '../components/DeviceEditModal';
 import Post from '../components/DevicePostModal';
+import Delete from '../components/DeviceDeleteModal';
 
 function Devices() {
 
       const [edit , setEdit] = useState(false)
       const [post , setPost] = useState(false)
+      const [remove , setRemove] = useState(false)
       const [devices , setDevices] = useState([]);
       const [deviceInfo , setDeviceInfo] = useState('')
       const token = localStorage.getItem('token')
@@ -26,16 +28,25 @@ function Devices() {
             setPost(false)
       }
 
-      useEffect(()=>{
+      function openDeleteModal(){
+            setRemove(!remove)
+      }
+      function closeDeleteModal(){
+            setRemove(false)
+      }
+
+      function getDevices () {
             axios.get('/Devices/GetAll' , {
                   headers : {
                         'Authorization' : 'Bearer' + ' ' + token
                   }
             })
-                  .then(data => {console.log(data); setDevices(data.data) ; })
+                  .then(data => {setDevices(data.data) ; })
                   .catch(err => console.log(err))
+      }
 
-            console.log(devices);      
+      useEffect(()=>{
+            getDevices()
       },[])
 
       function getDeviceInfo(item){
@@ -45,8 +56,9 @@ function Devices() {
 
   return (
       <>
-      {edit ? <Edit closeEditModal={closeEditModal} info={deviceInfo}/> : ''}
-      {post ? <Post closePostModal={closePostModal} /> : ''}
+      {edit ? <Edit closeEditModal={closeEditModal} info={deviceInfo} getDevices={getDevices}/> : ''}
+      {post ? <Post closePostModal={closePostModal} getDevices={getDevices}/> : ''}
+      {remove ? <Delete closeDeleteModal={closeDeleteModal} info={deviceInfo} getDevices={getDevices}/> : ''}
       <div className='devices d-flex flex-column gap-2'>
                   <div className="add-device d-flex justify-content-end">
                         <button onClick={()=>{openPostModal()}} className="btn btn-primary rounded-2 p-2">Qurilma qo'shish</button>
@@ -69,7 +81,7 @@ function Devices() {
                                                 <th className='text-center'>{item.phoneNumber}</th>
                                                 <th className='text-center d-flex align-items-center justify-content-center gap-4'>
                                                       <i onClick={()=>{openEditModal(), getDeviceInfo(item)}} class="fa-solid fa-pen-to-square text-warning"></i>
-                                                      <i class="fa-solid fa-trash text-danger"></i>
+                                                      <i onClick={()=>{openDeleteModal() , getDeviceInfo(item)}} class="fa-solid fa-trash text-danger"></i>
                                                 </th>
                                           </div>
                                     )

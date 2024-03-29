@@ -41,6 +41,13 @@
       border-radius: 5px;
       background: #fff;
     }
+    .coolinput input[type=number].input {
+      padding: 11px 10px;
+      font-size: 0.75rem;
+      border: 2px #818CF8 solid;
+      border-radius: 5px;
+      background: #fff;
+    }
     
     .coolinput input[type=text].input:focus {
       outline: none;

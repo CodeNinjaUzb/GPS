@@ -15,25 +15,25 @@ function Edit({closeEditModal , afterOpenEditModal , info}) {
                         </div>
                         <div className="edit-modal-body d-flex flex-wrap align-items-center justify-content-center gap-4">
                               <div className="input">
-                                    <div class="coolinput">
+                                    <div className="coolinput">
                                           <label for="input" className="text">Devide ID:</label>
                                           <input defaultValue={info.deviceId} type="text" placeholder="Write here..." name="input" className="input" />
                                     </div>
                               </div>
                               <div className="input">
-                                    <div class="coolinput">
+                                    <div className="coolinput">
                                           <label for="input" className="text">Mashina raqami:</label>
                                           <input defaultValue={info.carNumber} type="text" placeholder="Write here..." name="input" className="input" />
                                     </div>
                               </div>
                               <div className="input">
-                                    <div class="coolinput">
+                                    <div className="coolinput">
                                           <label for="input" className="text">Haydovchining ismi:</label>
                                           <input defaultValue={info.fullName} type="text" placeholder="Write here..." name="input" className="input" />
                                     </div>
                               </div>
                               <div className="input">
-                                    <div class="coolinput">
+                                    <div className="coolinput">
                                           <label for="input" className="text">Telefon raqami:</label>
                                           <input defaultValue={info.phoneNumber} type="text" placeholder="Write here..." name="input" className="input" />
                                     </div>
