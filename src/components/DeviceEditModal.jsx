@@ -17,25 +17,25 @@ function Edit({closeEditModal , afterOpenEditModal , info}) {
                               <div className="input">
                                     <div className="coolinput">
                                           <label for="input" className="text">Devide ID:</label>
-                                          <input defaultValue={info.deviceId} type="text" placeholder="Write here..." name="input" className="input" />
+                                          <input defaultValue={info.deviceId} type="text" placeholder="Write here..." name="input" className="edit-input" />
                                     </div>
                               </div>
                               <div className="input">
                                     <div className="coolinput">
                                           <label for="input" className="text">Mashina raqami:</label>
-                                          <input defaultValue={info.carNumber} type="text" placeholder="Write here..." name="input" className="input" />
+                                          <input defaultValue={info.carNumber} type="text" placeholder="Write here..." name="input" className="edit-input" />
                                     </div>
                               </div>
                               <div className="input">
                                     <div className="coolinput">
                                           <label for="input" className="text">Haydovchining ismi:</label>
-                                          <input defaultValue={info.fullName} type="text" placeholder="Write here..." name="input" className="input" />
+                                          <input defaultValue={info.fullName} type="text" placeholder="Write here..." name="input" className="edit-input" />
                                     </div>
                               </div>
                               <div className="input">
                                     <div className="coolinput">
                                           <label for="input" className="text">Telefon raqami:</label>
-                                          <input defaultValue={info.phoneNumber} type="text" placeholder="Write here..." name="input" className="input" />
+                                          <input defaultValue={info.phoneNumber} type="text" placeholder="Write here..." name="input" className="edit-input" />
                                     </div>
                               </div>
                         </div>

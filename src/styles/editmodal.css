@@ -34,7 +34,7 @@
       width: fit-content;
     }
     
-    .coolinput input[type=text].input {
+    .coolinput input[type=text].edit-input {
       padding: 11px 10px;
       font-size: 0.75rem;
       border: 2px #818CF8 solid;
@@ -42,6 +42,6 @@
       background: #fff;
     }
     
-    .coolinput input[type=text].input:focus {
+    .coolinput input[type=text].edit-input:focus {
       outline: none;
     }

@@ -34,14 +34,14 @@
       width: fit-content;
     }
     
-    .coolinput input[type=text].input {
+    .coolinput input[type=text].post-input {
       padding: 11px 10px;
       font-size: 0.75rem;
       border: 2px #818CF8 solid;
       border-radius: 5px;
       background: #fff;
     }
-    .coolinput input[type=number].input {
+    .coolinput input[type=number].post-input {
       padding: 11px 10px;
       font-size: 0.75rem;
       border: 2px #818CF8 solid;
@@ -49,6 +49,6 @@
       background: #fff;
     }
     
-    .coolinput input[type=text].input:focus {
+    .coolinput input[type=text].post-input:focus {
       outline: none;
     }

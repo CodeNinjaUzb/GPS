@@ -46,7 +46,7 @@ function Post( { closePostModal , getDevices }) {
                                                 type="number" 
                                                 placeholder="Write here..." 
                                                 name="input" 
-                                                className="input" 
+                                                className="post-input" 
                                                 value={newDevice.deviceId}
                                           />
                                     </div>
@@ -60,7 +60,7 @@ function Post( { closePostModal , getDevices }) {
                                                 type="text" 
                                                 placeholder="Write here..." 
                                                 name="input" 
-                                                className="input" 
+                                                className="post-input" 
                                                 value={newDevice.carNumber}
                                           />
                                     </div>
@@ -74,7 +74,7 @@ function Post( { closePostModal , getDevices }) {
                                                 type="text" 
                                                 placeholder="Write here..." 
                                                 name="input" 
-                                                className="input" 
+                                                className="post-input" 
                                                 value={newDevice.fullName}      
                                           />
                                     </div>
@@ -88,7 +88,7 @@ function Post( { closePostModal , getDevices }) {
                                                 type="text" 
                                                 placeholder="Write here..." 
                                                 name="input" 
-                                                className="input" 
+                                                className="post-input" 
                                                 value={newDevice.phoneNumber}      
                                           />
                                     </div>

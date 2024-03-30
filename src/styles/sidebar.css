@@ -1,5 +1,6 @@
 .sidebar{
-      width: 17%;
+      width: 100%; 
+      max-width: 280px; 
       height: 100vh;
 }
 .item{

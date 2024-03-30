@@ -41,4 +41,18 @@
 .coolinput input[type=text].input:focus , .cooldatepicker .datepicker{
       outline: none;
 }
-
+.route-table-head{
+      grid-template-columns: 25% 25% 25% 25%;
+}
+.event-table-head{
+      grid-template-columns: 33% 33% 33%;
+}
+.trip-table-head{
+      grid-template-columns: 16% 16% 16% 16% 16% 16%;
+}
+.stop-table-head{
+      grid-template-columns: 25% 25% 25% 25%;
+}
+.summary-table-head{
+      grid-template-columns: 25% 25% 25% 25%;
+}

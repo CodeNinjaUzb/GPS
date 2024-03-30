@@ -16,7 +16,6 @@ function App() {
 
 
   function loadCheckUser() {
-    axios.defaults.headers.common["Authorization"] = token;
     axios
       .get("/check-user", {
         headers: {
