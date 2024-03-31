@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 import Login from './pages/Login'
 import Home from './pages/Home'
 import Devices from './pages/Devices'
@@ -9,11 +9,18 @@ import TripDevice from './pages/reports/Trip'
 import EventDevice from './pages/reports/Event'
 import StopDevice from './pages/reports/Stop'
 import SummaryDevice from './pages/reports/Summary'
+import { useEffect } from 'react'
 
 function App() {
 
+  const navigate = useNavigate()
   const token = localStorage.getItem('token')
 
+  useEffect(()=>{
+      if(!token){
+        navigate('/login')
+      }
+  },[token])
 
   function loadCheckUser() {
     axios

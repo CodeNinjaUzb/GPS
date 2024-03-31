@@ -72,16 +72,16 @@ function Devices() {
                                     <th className='text-light text-center'>Tahrirlash</th>
                         </div>
                         <div className="table-body d-flex flex-column gap-2 pt-2 pb-2">
-                              {devices.map((item)=>{
+                              {devices.map((item , idx)=>{
                                     return(
-                                          <div className="table-row border rounded-4 d-grid pt-2 pb-2 ps-3 pe-3 w-100">
+                                          <div key={idx} className="table-row border rounded-4 d-grid pt-2 pb-2 ps-3 pe-3 w-100">
                                                 <th className='text-center'>{item.deviceId}</th>
                                                 <th className='text-center'>{item.carNumber}</th>
                                                 <th className='text-center'>{item.fullName}</th>
                                                 <th className='text-center'>{item.phoneNumber}</th>
                                                 <th className='text-center d-flex align-items-center justify-content-center gap-4'>
-                                                      <i onClick={()=>{openEditModal(), getDeviceInfo(item)}} class="fa-solid fa-pen-to-square text-warning"></i>
-                                                      <i onClick={()=>{openDeleteModal() , getDeviceInfo(item)}} class="fa-solid fa-trash text-danger"></i>
+                                                      <i onClick={()=>{openEditModal(), getDeviceInfo(item)}} className="fa-solid fa-pen-to-square text-warning"></i>
+                                                      <i onClick={()=>{openDeleteModal() , getDeviceInfo(item)}} className="fa-solid fa-trash text-danger"></i>
                                                 </th>
                                           </div>
                                     )

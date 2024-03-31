@@ -1,11 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/editmodal.css'
+import axios from 'axios';
 
 
 
-function Edit({closeEditModal , afterOpenEditModal , info}) {
+function Edit({closeEditModal , getDevices , info}) {
 
-      console.log(info);
+      const token = localStorage.getItem('token')
+      const [editDevice , setEditDevice] = useState({
+            'fullName' : '',
+            'phoneNumber' : '',
+            'carNumber' : '',
+            'deviceId' : 0
+      })
+
+      function handle(e) {
+            const newData = { ...editDevice };
+            newData[e.target.id] = e.target.value;
+            setEditDevice(newData);
+            console.log(editDevice);
+          } 
+
+          function EditDevice () {
+            axios.put(`Devices/Update?id=${info.id}`, editDevice ,
+                  {
+                        headers : {
+                              'Authorization' : 'Bearer' + ' ' + token
+                        },
+                        
+                  }).then(data => {console.log(data) ; closeEditModal() ; getDevices()}).catch(err => console.log(err))
+      }    
 
       return (
             <div className="edit">
@@ -16,32 +40,32 @@ function Edit({closeEditModal , afterOpenEditModal , info}) {
                         <div className="edit-modal-body d-flex flex-wrap align-items-center justify-content-center gap-4">
                               <div className="input">
                                     <div className="coolinput">
-                                          <label for="input" className="text">Devide ID:</label>
-                                          <input defaultValue={info.deviceId} type="text" placeholder="Write here..." name="input" className="edit-input" />
+                                          <label htmlFor="input" className="text">Devide ID:</label>
+                                          <input id='deviceId' onChange={(e)=>handle(e)} defaultValue={info.deviceId} type="text" placeholder="Write here..." name="input" className="edit-input" />
                                     </div>
                               </div>
                               <div className="input">
                                     <div className="coolinput">
-                                          <label for="input" className="text">Mashina raqami:</label>
-                                          <input defaultValue={info.carNumber} type="text" placeholder="Write here..." name="input" className="edit-input" />
+                                          <label htmlFor="input" className="text">Mashina raqami:</label>
+                                          <input id='carNumber' onChange={(e)=>handle(e)} defaultValue={info.carNumber} type="text" placeholder="Write here..." name="input" className="edit-input" />
                                     </div>
                               </div>
                               <div className="input">
                                     <div className="coolinput">
-                                          <label for="input" className="text">Haydovchining ismi:</label>
-                                          <input defaultValue={info.fullName} type="text" placeholder="Write here..." name="input" className="edit-input" />
+                                          <label htmlFor="input" className="text">Haydovchining ismi:</label>
+                                          <input id='fullName' onChange={(e)=>handle(e)} defaultValue={info.fullName} type="text" placeholder="Write here..." name="input" className="edit-input" />
                                     </div>
                               </div>
                               <div className="input">
                                     <div className="coolinput">
-                                          <label for="input" className="text">Telefon raqami:</label>
-                                          <input defaultValue={info.phoneNumber} type="text" placeholder="Write here..." name="input" className="edit-input" />
+                                          <label htmlFor="input" className="text">Telefon raqami:</label>
+                                          <input id='phoneNumber' onChange={(e)=>handle(e)} defaultValue={info.phoneNumber} type="text" placeholder="Write here..." name="input" className="edit-input" />
                                     </div>
                               </div>
                         </div>
                         <div className="edit-modal-foot pt-5">
                               <div className="btns d-flex align-items-center gap-3">
-                                    <button className="btn btn-success rounded-3 p-2 border-0 w-50">Saqlash</button>
+                                    <button className="btn btn-success rounded-3 p-2 border-0 w-50" onClick={()=>EditDevice()}>Saqlash</button>
                                     <button className="btn btn-danger rounded-3 p-2 border-0 w-50" onClick={closeEditModal}>Bekor qilish</button>
                               </div>
                         </div>

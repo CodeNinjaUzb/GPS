@@ -1,49 +1,61 @@
 import React, { useState } from 'react';
 import '../../styles/reportEvents.css'
-import "react-datepicker/dist/react-datepicker.css";
-import ReactDatePicker from 'react-datepicker';
+import axios from 'axios';
 
 function RouteDevice() {
 
-      const [startDate, setStartDate] = useState(new Date());
-      const [endDate, setEndDate] = useState(new Date());
-      const [carNumber , setCarNumber] = useState('')
+      const token = localStorage.getItem('token')
 
-      let date = new Date()
-      let today = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate()      
 
-      function handleStartDate(e) {
-            const newStartDate = { ...startDate };
-            newStartDate = e.target.value;
-            setStartDate(newStartDate);
-            console.log(startDate);
-          }
+      const [routeData , setRouteData] = useState([])
+      const [data , setData] = useState({
+            'carNumber' : '',
+            'startDate' : '',
+            'endDate' : ''
+      })
+
+      function handle(e) {
+            const newData = { ...data };
+            newData[e.target.id] = e.target.value;
+            setData(newData);
+            console.log(data);
+      } 
+
+      function getRoute () {
+            axios.get(`GPS/GetRoute?fromDate=${data.startDate}&toDate=${data.endDate}&carNumber=${data.carNumber}`,
+                  {
+                        headers : {
+                              'Authorization' : 'Bearer' + ' ' + token
+                        },
+                        
+                  }).then(data => {console.log(data) ; setRouteData(data.data)}).catch(err => console.log(err))
+      }
 
       return (
         <div className='route w-100'>
                 <div className="filter d-flex align-items-center gap-3 justify-content-center">
                       <div className="coolinput">
-                            <label htmlfor="input" className="text">Mashina raqami</label>
+                            <label htmlFor="input" className="text">Mashina raqami</label>
                             <input 
-                                  // onChange={(e)=> handle(e)} 
-                                  id='carNumber' 
-                                  type="text" 
-                                  placeholder="Write here..." 
-                                  name="input" 
-                                  className="input" 
-                                  // value={newDevice.phoneNumber}      
+                              required
+                              onChange={(e)=>handle(e)}
+                              id='carNumber' 
+                              type="text" 
+                              placeholder="Write here..." 
+                              name="carNumber" 
+                              className="input"  
                             />
                       </div>
                       <div className="cooldatepicker">
-                            <label htmlFor="startDay" className='text'>Boshlanish sanasi</label> 
-                            <ReactDatePicker dateFormat='dd-MM-YYYY' id='startDate' selected={startDate} onChange={(e) => handleStartDate(e)} className='datepicker' placeholderText={today}/>     
+                              <label htmlFor="startDay" className='text'>Boshlanish sanasi</label> 
+                              <input onChange={(e)=>handle(e)} required type="date" id='startDate' className='datepicker' name='startDate'/>
                       </div>   
                       <div className="cooldatepicker">
                             <label htmlFor="endDay" className='text'>Tugash sanasi</label> 
-                            <ReactDatePicker dateFormat='dd-MM-YYYY' selected={endDate} onChange={(date) => setEndDate(date)} className='datepicker' placeholderText={today}/>     
+                            <input onChange={(e)=>handle(e)} required type="date" id='endDate' className='datepicker' name='endDate'/>
                       </div>   
                       <div className="filter-button">
-                              <button className="btn btn-primary rounded-2 ps-5 pe-5 pt-2 pb-2 mt-3 fw-bold">Ko'rsatish</button>
+                              <button onClick={()=> getRoute()} className="btn btn-primary rounded-2 ps-5 pe-5 pt-2 pb-2 mt-3 fw-bold">Ko'rsatish</button>
                       </div>
                 </div>
                 <div className="route-table pt-4">
@@ -55,11 +67,35 @@ function RouteDevice() {
                                     <p className='m-0 text-light fw-bold'>Fix Time</p>
                               </div>
                               <div className="head-item d-flex align-items-center justify-content-center">
-                                    <p className='m-0 text-light fw-bold'>Kordinatalar</p>
+                                    <p className='m-0 text-light fw-bold'>Kenglik</p>
+                              </div>
+                              <div className="head-item d-flex align-items-center justify-content-center">
+                                    <p className='m-0 text-light fw-bold'>Uzunlik</p>
                               </div>
                               <div className="head-item d-flex align-items-center justify-content-center">
                                     <p className='m-0 text-light fw-bold'>Tezlik</p>
                               </div>
+                        </div>
+                        <div className="route-table-body d-flex flex-column gap-1 pt-1">
+                              {routeData.map((item)=>{return(
+                                    <div className="route-table-row d-grid rounded-2 pt-1 pb-1 border-1">
+                                          <div className="row-item d-flex align-items-center justify-content-center">
+                                                <p className="m-0 fw-bold">{item.deviceId}</p>
+                                          </div>
+                                          <div className="row-item d-flex align-items-center justify-content-center">
+                                                <p className="m-0 fw-bold">{item.fixTime.slice(0,10)} {item.fixTime.slice(11,19)}</p>
+                                          </div>
+                                          <div className="row-item d-flex align-items-center justify-content-center">
+                                                <p className="m-0 fw-bold">{item.latitude}°</p>
+                                          </div>
+                                          <div className="row-item d-flex align-items-center justify-content-center">
+                                                <p className="m-0 fw-bold">{item.longitude}°</p>
+                                          </div>
+                                          <div className="row-item d-flex align-items-center justify-content-center">
+                                                <p className="m-0 fw-bold">{item.speed} km/s</p>
+                                          </div>
+                                    </div>
+                              )})}
                         </div>
                 </div>
         </div>
