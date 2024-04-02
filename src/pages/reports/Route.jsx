@@ -32,8 +32,8 @@ function RouteDevice() {
       }
 
       return (
-        <div className='route w-100'>
-                <div className="filter d-flex align-items-center gap-3 justify-content-center">
+        <div className='route'>
+                <div className="filter w-100 d-flex align-items-center gap-3 justify-content-center">
                       <div className="coolinput">
                             <label htmlFor="input" className="text">Mashina raqami</label>
                             <input 

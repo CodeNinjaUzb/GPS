@@ -9,7 +9,8 @@ import TripDevice from './pages/reports/Trip'
 import EventDevice from './pages/reports/Event'
 import StopDevice from './pages/reports/Stop'
 import SummaryDevice from './pages/reports/Summary'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
   const token = localStorage.getItem('token')
 
   useEffect(()=>{
+      loadCheckUser()
       if(!token){
         navigate('/login')
       }
@@ -24,7 +26,7 @@ function App() {
 
   function loadCheckUser() {
     axios
-      .get("/check-user", {
+      .get("/Auth/CheckUser", {
         headers: {
           Authorization: "Bearer" + " " + token,
         },
@@ -32,7 +34,7 @@ function App() {
       .then((data) => {
         if (data?.status === 200) {
           if (data?.data.ok) {
-            setExistToken(true);
+            return true;
           }
         }
       })

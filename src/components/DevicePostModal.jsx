@@ -39,7 +39,7 @@ function Post( { closePostModal , getDevices }) {
                         <div className="post-modal-body d-flex flex-wrap align-items-center justify-content-center gap-4">
                               <div className="input">
                                     <div className="coolinput">
-                                          <label htmlfor="input" className="text">Qurilma IDsi:</label>
+                                          <label htmlFor="input" className="text">Qurilma IDsi:</label>
                                           <input 
                                                 onChange={(e)=> handle(e)} 
                                                 id='deviceId' 
@@ -53,7 +53,7 @@ function Post( { closePostModal , getDevices }) {
                               </div>
                               <div className="input">
                                     <div className="coolinput">
-                                          <label htmlfor="input" className="text">Mashina raqami:</label>
+                                          <label htmlFor="input" className="text">Mashina raqami:</label>
                                           <input 
                                                 onChange={(e)=> handle(e)} 
                                                 id='carNumber' 
@@ -67,7 +67,7 @@ function Post( { closePostModal , getDevices }) {
                               </div>
                               <div className="input">
                                     <div className="coolinput">
-                                          <label htmlfor="input" className="text">Haydovchining ismi:</label>
+                                          <label htmlFor="input" className="text">Haydovchining ismi:</label>
                                           <input 
                                                 onChange={(e)=> handle(e)} 
                                                 id='fullName' 
@@ -81,7 +81,7 @@ function Post( { closePostModal , getDevices }) {
                               </div>
                               <div className="input">
                                     <div className="coolinput">
-                                          <label htmlfor="input" className="text">Telefon raqami:</label>
+                                          <label htmlFor="input" className="text">Telefon raqami:</label>
                                           <input 
                                                 onChange={(e)=> handle(e)} 
                                                 id='phoneNumber' 

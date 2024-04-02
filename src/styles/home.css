@@ -1,0 +1,37 @@
+.menu{
+      padding-top: 15px;
+      display: none;
+}
+.logout-button{
+      display: none;
+}
+@media screen and (min-width : 576px ) and (max-width : 767px){
+      .menu{
+            display: flex !important;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+            gap: 13px;
+      }
+      .route-buttons{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 13px;
+      }
+}
+@media screen and (max-width : 575px){
+      .menu{
+            display: flex !important;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+            gap: 13px;
+      }
+      .route-buttons{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 13px;
+      }
+}

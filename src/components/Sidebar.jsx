@@ -4,7 +4,7 @@ import '../styles/sidebar.css'
 
 function Sidebar() {
   return (
-    <div className='sidebar bg-primary d-flex flex-column align-items-center justify-content-around p-3'>
+    <div className='sidebar bg-primary'>
             <div className="logo">
                   <Link className='text-light text-decoration-none fw-bold title' to="/">GPS Tracker</Link>      
             </div> 

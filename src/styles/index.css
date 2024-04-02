@@ -3,17 +3,55 @@
   margin: 0;
   box-sizing: border-box;
 }
-@media screen and (max-width: 768px) {
-  .sidebar {
-    display: none; 
+
+
+
+@media screen and (min-width : 992px ) and (max-width : 1240px){
+  .home .routes{
+    padding: 0.5em !important;
   }
-  .navbar {
-    justify-content: space-between; 
+  .login{
+    width: 400px;
+    height: 400px;
   }
-  .title {
-    font-size: 24px; 
+  .sidebar{
+    width: 100%; 
+    max-width: 230px; 
+    height: 100vh;
+}
+  .sidebar .title{
+    font-size: 30px;
+}
+  .navbar .title p{
+    font-size: 24px;
   }
-  .avatar {
-    width: 30px; 
+  .devices .table-body{
+    height: 400px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.filter{
+    gap: 10px;
+    width: 80%;
+}
+.filter .coolinput ,.filter .cooldatepicker{
+  max-width: 200px;
+}
+.coolinput input[type=text].input , .cooldatepicker .datepicker{
+  width: 200px;
+}
+}
+@media screen and (min-width : 768px ) and (max-width : 991px){}
+@media screen and (min-width : 576px ) and (max-width : 767px){
+  .sidebar{
+    display: none !important;
+  }
+  .navbar .title p{
+    font-size: 16px;
+  }
+}
+@media screen and (max-width : 575px){
+  .sidebar{
+    display: none !important;
   }
 }

@@ -61,28 +61,28 @@ function Devices() {
       {remove ? <Delete closeDeleteModal={closeDeleteModal} info={deviceInfo} getDevices={getDevices}/> : ''}
       <div className='devices d-flex flex-column gap-2'>
                   <div className="add-device d-flex justify-content-end">
-                        <button onClick={()=>{openPostModal()}} className="btn btn-primary rounded-2 p-2">Qurilma qo'shish</button>
+                        <button onClick={()=>{openPostModal()}} className="btn btn-primary rounded-2 p-1">Qurilma qo'shish</button>
                   </div>
-                  <div className="table w-100">
-                        <div className="table-head rounded-3 bg-primary d-grid pt-2 pb-2 ps-3 pe-3">
-                                    <th className='text-light text-center'>Device ID</th>
-                                    <th className='text-light text-center'>Mashina raqami</th>
-                                    <th className='text-light text-center'>Haydovchi</th>
-                                    <th className='text-light text-center'>Telefon raqami</th>
-                                    <th className='text-light text-center'>Tahrirlash</th>
+                  <div className="table overflow-x-auto">
+                        <div className="table-head rounded-3 bg-primary d-grid">
+                                    <p className='m-0 text-center text-light fw-bold'>Device ID</p>
+                                    <p className='m-0 text-center text-light fw-bold'>Mashina raqami</p>
+                                    <p className='m-0 text-center text-light fw-bold'>Haydovchi</p>
+                                    <p className='m-0 text-center text-light fw-bold'>Telefon raqami</p>
+                                    <p className='m-0 text-center text-light fw-bold'>Tahrirlash</p>
                         </div>
                         <div className="table-body d-flex flex-column gap-2 pt-2 pb-2">
                               {devices.map((item , idx)=>{
                                     return(
-                                          <div key={idx} className="table-row border rounded-4 d-grid pt-2 pb-2 ps-3 pe-3 w-100">
-                                                <th className='text-center'>{item.deviceId}</th>
-                                                <th className='text-center'>{item.carNumber}</th>
-                                                <th className='text-center'>{item.fullName}</th>
-                                                <th className='text-center'>{item.phoneNumber}</th>
-                                                <th className='text-center d-flex align-items-center justify-content-center gap-4'>
+                                          <div key={idx} className="table-row border d-grid">
+                                                <p className='m-0 text-center'>{item.deviceId}</p>
+                                                <p className='m-0 text-center'>{item.carNumber}</p>
+                                                <p className='m-0 text-center'>{item.fullName}</p>
+                                                <p className='m-0 text-center'>{item.phoneNumber}</p>
+                                                <p className='m-0 text-center d-flex align-items-center justify-content-center gap-4'>
                                                       <i onClick={()=>{openEditModal(), getDeviceInfo(item)}} className="fa-solid fa-pen-to-square text-warning"></i>
                                                       <i onClick={()=>{openDeleteModal() , getDeviceInfo(item)}} className="fa-solid fa-trash text-danger"></i>
-                                                </th>
+                                                </p>
                                           </div>
                                     )
                               })}

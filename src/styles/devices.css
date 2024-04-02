@@ -1,4 +1,5 @@
 .table-head{
+      padding: 14px 24px;
       grid-template-columns: 20% 20% 20% 20% 20%;
 }
 .table-body{
@@ -7,11 +8,65 @@
       overflow-y: scroll;
 }
 .table-row{
+      padding: 14px 24px;
       grid-template-columns: 20% 20% 20% 20% 20%;
-}
-th{
-      border: none !important;
 }
 i{
       cursor: pointer;
+}
+@media screen and (min-width : 576px ) and (max-width : 767px){
+      .table{
+            padding-top: 20px;
+      }
+      .table-body{
+            width: 600px;
+      }
+      .table-head{
+            width: 600px;
+            padding: 4px 8px;
+            grid-template-columns: 20% 20% 20% 20% 20%;
+            overflow-x: scroll;
+      }
+      .table-head p{
+            font-weight: normal !important;
+            font-size: 12px;
+      }
+      .table-row{
+            width: 600px;
+            align-items: center;
+            border-radius: 4px !important;
+            padding: 4px 8px;
+            grid-template-columns: 20% 20% 20% 20% 20%;
+      }
+      .table-row p{
+            font-size: 14px;
+      }
+}
+@media screen and (max-width : 575px){
+      .table{
+            padding-top: 20px;
+      }
+      .table-body{
+            width: 600px;
+      }
+      .table-head{
+            width: 600px;
+            padding: 4px 8px;
+            grid-template-columns: 20% 20% 20% 20% 20%;
+            overflow-x: scroll;
+      }
+      .table-head p{
+            font-weight: normal !important;
+            font-size: 14px;
+      }
+      .table-row{
+            width: 600px;
+            align-items: center;
+            border-radius: 4px !important;
+            padding: 4px 8px;
+            grid-template-columns: 20% 20% 20% 20% 20%;
+      }
+      .table-row p{
+            font-size: 14px;
+      }
 }

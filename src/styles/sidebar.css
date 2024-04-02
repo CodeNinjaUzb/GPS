@@ -2,6 +2,10 @@
       width: 100%; 
       max-width: 280px; 
       height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
 }
 .item{
       cursor: pointer;
@@ -9,3 +13,13 @@
 .title{
       font-size: 36px;
 }
+@media screen and (min-width : 576px ) and (max-width : 767px){
+      .sidebar{
+        display: none !important;
+      }
+    }
+    @media screen and (max-width : 575px){
+      .sidebar{
+        display: none !important;
+      }
+    }
