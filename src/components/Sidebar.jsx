@@ -14,20 +14,20 @@ function Sidebar() {
                   <Link className='text-light text-decoration-none fw-bold title' to="/">GPS Tracker</Link>      
             </div> 
             <div className="menu d-flex flex-column gap-3 ps-3 pe-3">
-                  <div className="item d-flex align-items-center gap-3 bg-light ps-5 pe-5 pt-1 pb-1 rounded-3">
+                  <Link to="/devices" className="item text-decoration-none d-flex align-items-center gap-3 bg-light ps-5 pe-5 pt-1 pb-1 rounded-3">
                         <i className="fa-solid fa-location-crosshairs text-primary"></i>
-                        <Link className='text-primary text-decoration-none fw-bold' to="/devices">Qurilmalar</Link>      
-                  </div>
-                 <div className="item d-flex align-items-center gap-3 bg-light ps-5 pe-5 pt-1 pb-1 rounded-3">
+                        <p className='m-0 text-primary fw-bold' >Qurilmalar</p>      
+                  </Link>
+                 <Link to="/reports" className="item text-decoration-none d-flex align-items-center gap-3 bg-light ps-5 pe-5 pt-1 pb-1 rounded-3">
                         <i className="fa-solid fa-chart-simple text-primary "></i>
-                        <Link className='text-primary text-decoration-none fw-bold' to="/reports">Xisobot</Link>     
-                  </div>
+                        <p className='m-0 text-primary fw-bold' >Xisobot</p>     
+                  </Link>
             </div> 
             <div className="log-out">
-                  <div className="item d-flex align-items-center gap-3 bg-light ps-5 pe-5 pt-1 pb-1 rounded-3">
+                  <Link to="/login"  onClick={()=>Logout()} className="item text-decoration-none d-flex align-items-center gap-3 bg-light ps-5 pe-5 pt-1 pb-1 rounded-3">
                         <i className="fa-solid fa-arrow-right-from-bracket text-primary"></i>
-                        <Link className='text-primary text-decoration-none fw-bold' to="/login" onClick={()=>Logout()}>Chiqish</Link>
-                  </div>
+                        <p className='m-0 text-primary fw-bold' >Chiqish</p>
+                  </Link>
             </div> 
     </div>
   );
