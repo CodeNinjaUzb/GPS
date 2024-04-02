@@ -20,7 +20,6 @@ function SummaryDevice() {
             const newData = { ...data };
             newData[e.target.id] = e.target.value;
             setData(newData);
-            console.log(data);
       } 
 
       function getSummary () {
@@ -30,7 +29,7 @@ function SummaryDevice() {
                               'Authorization' : 'Bearer' + ' ' + token
                         },
                         
-                  }).then(data => {console.log(data) ; setSummaryData(data.data)}).catch(err => toast.error('Xatolik yuz berdi ! Qaytadan urining!'))
+                  }).then(data => {setSummaryData(data.data)}).catch(err => toast.error('Xatolik yuz berdi ! Qaytadan urining!'))
       }
 
       return (

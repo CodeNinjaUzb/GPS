@@ -20,17 +20,16 @@ function EventsDevice() {
             const newData = { ...data };
             newData[e.target.id] = e.target.value;
             setData(newData);
-            console.log(data);
       } 
 
-      async function getEvents () {
-            await axios.get(`GPS/GetEvents?fromDate=${data.startDate}&toDate=${data.endDate}&carNumber=${data.carNumber}`,
+      function getEvents () {
+             axios.get(`GPS/GetEvents?fromDate=${data.startDate}&toDate=${data.endDate}&carNumber=${data.carNumber}`,
                   {
                         headers : {
                               'Authorization' : 'Bearer' + ' ' + token
                         },
                         
-                  }).then(response => {console.log(response) ; setEventData(...response.data) ; console.log(eventData);})
+                  }).then(response => {setEventData(response.data)})
                   .catch(err => toast.error('Xatolik yuz berdi ! Qaytadan urining!'))
       }
 
@@ -84,7 +83,7 @@ function EventsDevice() {
                                                       <p className="m-0 fw-bold">{item.deviceId}</p>
                                                 </div>
                                                 <div className="row-item d-flex align-items-center justify-content-center">
-                                                      <p className="m-0 fw-bold">{item.eventTime.slice(0,10)} {item.fixTime.slice(11,19)}</p>
+                                                      <p className="m-0 fw-bold">{item?.eventTime?.slice(0,10)} {item?.eventTime?.slice(11,19)}</p>
                                                 </div>
                                                 <div className="row-item d-flex align-items-center justify-content-center">
                                                       <p className="m-0 fw-bold">{item.type}</p>

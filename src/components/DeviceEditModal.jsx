@@ -19,7 +19,6 @@ function Edit({closeEditModal , getDevices , info}) {
             const newData = { ...editDevice };
             newData[e.target.id] = e.target.value;
             setEditDevice(newData);
-            console.log(editDevice);
           } 
 
           function EditDevice () {

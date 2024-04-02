@@ -4,6 +4,7 @@ import axios from 'axios';
 import Edit from '../components/DeviceEditModal';
 import Post from '../components/DevicePostModal';
 import Delete from '../components/DeviceDeleteModal';
+import toast from 'react-hot-toast';
 
 function Devices() {
 
@@ -42,7 +43,7 @@ function Devices() {
                   }
             })
                   .then(data => {setDevices(data.data) ; })
-                  .catch(err => console.log(err))
+                  .catch(err => toast.error('Xatolik yuz berdi ! Qayta urining !'))
       }
 
       useEffect(()=>{

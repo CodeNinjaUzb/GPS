@@ -20,7 +20,6 @@ function TripDevice() {
             const newData = { ...data };
             newData[e.target.id] = e.target.value;
             setData(newData);
-            console.log(data);
       } 
 
       function getTrips () {
@@ -30,7 +29,7 @@ function TripDevice() {
                               'Authorization' : 'Bearer' + ' ' + token
                         },
                         
-                  }).then(data => {console.log(data) ; setTripsData(data.data)}).catch(err => toast.error('Xatolik yuz berdi ! Qaytadan urining!'))
+                  }).then(data => {setTripsData(data.data)}).catch(err => toast.error('Xatolik yuz berdi ! Qaytadan urining!'))
       }
 
       return (

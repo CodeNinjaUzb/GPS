@@ -32,7 +32,6 @@ function Login() {
               .catch((err) => {
                 toast.error('Xatolik yuz berdi ! Qaytadan urining !')
                 if (err?.message == "Network Error") {
-                  console.log('network error');
                   return;
                 }
                 });

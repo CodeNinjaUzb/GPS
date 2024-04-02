@@ -20,7 +20,6 @@ function StopDevice() {
             const newData = { ...data };
             newData[e.target.id] = e.target.value;
             setData(newData);
-            console.log(data);
       } 
 
       function getStops () {
@@ -30,7 +29,7 @@ function StopDevice() {
                               'Authorization' : 'Bearer' + ' ' + token
                         },
                         
-                  }).then(data => {console.log(data) ; setStopData(data.data)}).catch(err => toast.error('Xatolik yuz berdi ! Qaytadan urining!'))
+                  }).then(data => {setStopData(data.data)}).catch(err => toast.error('Xatolik yuz berdi ! Qaytadan urining!'))
       }
 
       return (

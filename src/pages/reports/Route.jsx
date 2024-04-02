@@ -21,7 +21,6 @@ function RouteDevice() {
             const newData = { ...data };
             newData[e.target.id] = e.target.value;
             setData(newData);
-            console.log(data);
       } 
 
       function getRoute () {
@@ -31,7 +30,7 @@ function RouteDevice() {
                               'Authorization' : 'Bearer' + ' ' + token
                         },
                         
-                  }).then(data => {console.log(data) ; setRouteData(data.data)}).catch(err => toast.error('Xatolik yuz berdi ! Qaytadan urining!'))
+                  }).then(data => {setRouteData(data.data)}).catch(err => toast.error('Xatolik yuz berdi ! Qaytadan urining!'))
       }
 
       return (
