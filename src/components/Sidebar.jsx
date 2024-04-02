@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 import '../styles/sidebar.css'
 
 function Sidebar() {
+
+      function Logout(){
+            localStorage.clear()
+      }
+
   return (
     <div className='sidebar bg-primary'>
             <div className="logo">
@@ -21,7 +26,7 @@ function Sidebar() {
             <div className="log-out">
                   <div className="item d-flex align-items-center gap-3 bg-light ps-5 pe-5 pt-1 pb-1 rounded-3">
                         <i className="fa-solid fa-arrow-right-from-bracket text-primary"></i>
-                        <Link className='text-primary text-decoration-none fw-bold' to="/login">Chiqish</Link>
+                        <Link className='text-primary text-decoration-none fw-bold' to="/login" onClick={()=>Logout()}>Chiqish</Link>
                   </div>
             </div> 
     </div>

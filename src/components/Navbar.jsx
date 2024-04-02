@@ -8,7 +8,9 @@ function Navbar() {
       const date = new Date()
       const showTime = date.getHours() + ':' + date.getMinutes()
             
-
+      function Logout(){
+            localStorage.clear()
+      }
   return (
     <div className='navbar nav nav-light d-flex align-items-center justify-content-around pt-2 pb-2 ps-3 pe-3 border-bottom w-100'>
             <div className="title">
@@ -20,7 +22,7 @@ function Navbar() {
             </div> 
             <div className="logout">
                   <button className="logout-btn rounded-2 p-2">
-                          <Link className='text-decoration-none text-dark' to="/login"><i className="fa-solid fa-arrow-right-from-bracket"></i></Link>
+                          <Link className='text-decoration-none text-dark' to="/login" onClick={()=>Logout()}><i className="fa-solid fa-arrow-right-from-bracket"></i></Link>
                     </button>
             </div>
             <div className="time">
