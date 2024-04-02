@@ -52,7 +52,7 @@ function Edit({closeEditModal , getDevices , info}) {
                               </div>
                               <div className="input">
                                     <div className="coolinput">
-                                          <label htmlFor="input" className="text">Haydovchining ismi:</label>
+                                          <label htmlFor="input" className="text">Haydovchi:</label>
                                           <input id='fullName' onChange={(e)=>handle(e)} defaultValue={info.fullName} type="text" placeholder="Write here..." name="input" className="edit-input" />
                                     </div>
                               </div>
@@ -64,7 +64,7 @@ function Edit({closeEditModal , getDevices , info}) {
                               </div>
                         </div>
                         <div className="edit-modal-foot pt-5">
-                              <div className="btns d-flex align-items-center gap-3">
+                              <div className="btns d-flex justify-content-center align-items-center gap-3">
                                     <button className="btn btn-success rounded-3 p-2 border-0 w-50" onClick={()=>EditDevice()}>Saqlash</button>
                                     <button className="btn btn-danger rounded-3 p-2 border-0 w-50" onClick={closeEditModal}>Bekor qilish</button>
                               </div>

@@ -1,0 +1,34 @@
+.side-menu{
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+}
+.side-menu button{
+      padding: 6px 46px;
+}
+@media screen and (min-width : 576px ) and (max-width : 767px){
+      .side-menu{
+            padding-top: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            width: 100%;
+            gap: 10px;
+      }
+      .side-menu button{
+            padding: 3px 10px;
+      }
+}
+@media screen and (max-width : 575px){
+      .side-menu{
+            padding-top: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            width: 100%;
+            gap: 10px;
+      }
+      .side-menu button{
+            padding: 3px 10px;
+      }
+}

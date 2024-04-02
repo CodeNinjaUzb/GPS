@@ -30,6 +30,21 @@
 .coolinput input[type=text].input:focus , .cooldatepicker .datepicker{
       outline: none;
 }
+.route-table{
+      width: 1150px;
+}
+.event-table{
+      width: 1150px;
+}
+.trip-table{
+      width: 1150px;
+}
+.stop-table{
+      width: 1150px;
+}
+.summary-table{
+      width: 1150px;
+}
 .route-table-head{
       grid-template-columns: 20% 20% 20% 20% 20%;
 }
@@ -68,4 +83,31 @@
 .summary-table-row{
       grid-template-columns: 25% 25% 25% 25%;
       border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (min-width : 576px ) and (max-width : 767px){
+      .wrapper-table{
+            overflow-x: auto;
+      }
+      .head-item p{
+            font-weight: normal;
+            font-size: 14px;
+      }
+      .row-item p{
+            font-weight: normal;
+            font-size: 14px;
+      }
+}
+@media screen and (max-width : 575px){
+      .wrapper-table{
+            overflow-x: auto;
+      }
+      .head-item p{
+            font-weight: normal;
+            font-size: 14px;
+      }
+      .row-item p{
+            font-weight: normal;
+            font-size: 14px;
+      }
 }

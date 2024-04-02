@@ -67,7 +67,7 @@ function Post( { closePostModal , getDevices }) {
                               </div>
                               <div className="input">
                                     <div className="coolinput">
-                                          <label htmlFor="input" className="text">Haydovchining ismi:</label>
+                                          <label htmlFor="input" className="text">Haydovchi:</label>
                                           <input 
                                                 onChange={(e)=> handle(e)} 
                                                 id='fullName' 
@@ -95,9 +95,9 @@ function Post( { closePostModal , getDevices }) {
                               </div>
                         </div>
                         <div className="post-modal-foot pt-5">
-                              <div className="btns d-flex align-items-center gap-3">
-                                    <button className="btn btn-success rounded-3 p-2 border-0 w-50" onClick={()=>PostDevice()}>Saqlash</button>
-                                    <button className="btn btn-danger rounded-3 p-2 border-0 w-50" onClick={()=>closePostModal()}>Bekor qilish</button>
+                              <div className="btns d-flex align-items-center justify-content-center gap-3">
+                                    <button className="btn btn-success rounded-3 border-0 w-50" onClick={()=>PostDevice()}>Saqlash</button>
+                                    <button className="btn btn-danger rounded-3 border-0 w-50" onClick={()=>closePostModal()}>Bekor qilish</button>
                               </div>
                         </div>
                   </div>

@@ -49,13 +49,12 @@ function App() {
         <Route path='/login' element={<Login />}/>
         <Route path='/' element={<Home />}>
           <Route path='/devices' element={<Devices />}/>
-          <Route path='/reports' element={<Report />}>
-            <Route path='/reports/route' element={<RouteDevice />}/>
-            <Route path='/reports/event' element={<EventDevice />}/>
-            <Route path='/reports/trip' element={<TripDevice />}/>
-            <Route path='/reports/stop' element={<StopDevice />}/>
-            <Route path='/reports/summary' element={<SummaryDevice />}/>
-          </Route>
+          <Route path='/reports' element={<Report />} />
+          <Route path='/reports/route' element={<RouteDevice />}/>
+          <Route path='/reports/event' element={<EventDevice />}/>
+          <Route path='/reports/trip' element={<TripDevice />}/>
+          <Route path='/reports/stop' element={<StopDevice />}/>
+          <Route path='/reports/summary' element={<SummaryDevice />}/>
         </Route>
       </Routes>
         

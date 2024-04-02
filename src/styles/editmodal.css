@@ -20,28 +20,82 @@
       width: fit-content;
       position: static;
       max-width: 240px;
+}
+
+.coolinput label.text {
+  font-size: 0.75rem;
+  color: #818CF8;
+  font-weight: 700;
+  position: relative;
+  top: 0.5rem;
+  margin: 0 0 0 7px;
+  padding: 0 3px;
+  background: #fff;
+  width: fit-content;
+}
+
+.coolinput input[type=text].edit-input {
+  padding: 11px 10px;
+  font-size: 0.75rem;
+  border: 2px #818CF8 solid;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.coolinput input[type=text].edit-input:focus {
+  outline: none;
+}
+@media screen and (min-width : 576px ) and (max-width : 767px){
+  .edit-modal{
+   width: 300px;
+   height: 300px;
+  }
+  h1{
+    font-size: 20px !important;
+  } 
+  .coolinput{
+    width: 100px !important;
+  }
+  .coolinput input[type=text].edit-input{
+    width: 100px !important;
+  }
+  .coolinput input[type=number].edit-input{
+    width: 100px !important;
+  }
+  .coolinput label.text{
+    font-size: 10px !important;
+    margin: 0 !important;
+  }
+  .btn{
+    padding: 4px 10px !important;
+    font-size: 12px !important;
+    width: 80px !important;
+  }
+}
+@media screen and (max-width : 575px){
+     .edit-modal{
+      width: 300px;
+      height: 300px;
     }
-    
-    .coolinput label.text {
-      font-size: 0.75rem;
-      color: #818CF8;
-      font-weight: 700;
-      position: relative;
-      top: 0.5rem;
-      margin: 0 0 0 7px;
-      padding: 0 3px;
-      background: #fff;
-      width: fit-content;
+    h1{
+      font-size: 20px !important;
+    } 
+    .coolinput{
+      width: 100px !important;
     }
-    
-    .coolinput input[type=text].edit-input {
-      padding: 11px 10px;
-      font-size: 0.75rem;
-      border: 2px #818CF8 solid;
-      border-radius: 5px;
-      background: #fff;
+    .coolinput input[type=text].edit-input{
+      width: 100px !important;
     }
-    
-    .coolinput input[type=text].edit-input:focus {
-      outline: none;
+    .coolinput input[type=number].edit-input{
+      width: 100px !important;
     }
+    .coolinput label.text{
+      font-size: 10px !important;
+      margin: 0 !important;
+    }
+    .btns .btn{
+      padding: 4px 10px !important;
+      font-size: 12px !important;
+      width: 100px !important;
+    }
+}

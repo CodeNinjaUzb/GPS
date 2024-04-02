@@ -8,7 +8,7 @@ function Report() {
 
   return (
     <div className='report d-flex flex-column gap-4 w-100'>
-            <div className="top d-flex justify-content-center w-100">
+            <div className="top">
                   <MenuReports />
             </div>
             <div className="bottom">
