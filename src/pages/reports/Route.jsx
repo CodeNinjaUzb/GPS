@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../../styles/reportEvents.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 function RouteDevice() {
 
@@ -30,7 +31,7 @@ function RouteDevice() {
                               'Authorization' : 'Bearer' + ' ' + token
                         },
                         
-                  }).then(data => {console.log(data) ; setRouteData(data.data)}).catch(err => console.log(err))
+                  }).then(data => {console.log(data) ; setRouteData(data.data)}).catch(err => toast.error('Xatolik yuz berdi ! Qaytadan urining!'))
       }
 
       return (

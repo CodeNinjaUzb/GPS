@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../../styles/reportEvents.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 function EventsDevice() {
 
@@ -22,14 +23,15 @@ function EventsDevice() {
             console.log(data);
       } 
 
-      function getEvents () {
-            axios.get(`GPS/GetEvents?fromDate=${data.startDate}&toDate=${data.endDate}&carNumber=${data.carNumber}`,
+      async function getEvents () {
+            await axios.get(`GPS/GetEvents?fromDate=${data.startDate}&toDate=${data.endDate}&carNumber=${data.carNumber}`,
                   {
                         headers : {
                               'Authorization' : 'Bearer' + ' ' + token
                         },
                         
-                  }).then(response => {console.log(response) ; setEventData(response.data)}).catch(err => console.log(err))
+                  }).then(response => {console.log(response) ; setEventData(...response.data) ; console.log(eventData);})
+                  .catch(err => toast.error('Xatolik yuz berdi ! Qaytadan urining!'))
       }
 
       return (
