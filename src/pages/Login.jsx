@@ -46,7 +46,7 @@ function Login() {
       <div className="wrapper d-flex align-items-center justify-content-center">
             <div className="login pt-4">
                   <h1 className='text-center fw-bolder fs-2'>Tizimga kirish</h1>
-                  <form className='p-5 d-flex flex-column gap-4'>
+                  <form className='d-flex flex-column gap-4'>
                         <div className="email">
                               <label className='text-bolder'>Username</label>
                               <input

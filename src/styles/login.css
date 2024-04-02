@@ -3,12 +3,33 @@
       height: 100vh;
 }
 .login{
-      width: 450px;
-      height: 450px;
+      width: 350px;
+      height: 350px;
       box-shadow: 4px 0 7px rgba(0, 0, 0, 0.3);
       border-radius: 13px;
 }
 form{
       width: 100%;
       height: 100%;
+      padding: 20px 50px;
+}
+@media screen and (min-width : 576px ) and (max-width : 767px){
+      .login{
+            width: 300px;
+            height: 320px;
+      }
+      .login h1{
+            font-weight: normal !important;
+      }
+
+}
+@media screen and (max-width : 575px){
+      .login{
+            width: 300px;
+            height: 320px;
+      }
+      .login h1{
+            font-weight: normal !important;
+      }
+
 }

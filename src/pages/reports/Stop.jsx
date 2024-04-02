@@ -37,9 +37,9 @@ function StopDevice() {
                   <div className="back-route">
                         <i className="fa-solid fa-arrow-left text-primary" onClick={()=>navigate(-1)}></i>
                   </div>
-                <div className="filter flex-wrap d-flex align-items-center gap-3 justify-content-center">
+                <div className="filter flex-wrap d-flex align-items-center gap-3">
                       <div className="coolinput">
-                            <label htmlfor="input" className="text">Mashina raqami</label>
+                            <label htmlFor="input" className="text">Mashina raqami</label>
                             <input 
                               required
                               onChange={(e)=>handle(e)}

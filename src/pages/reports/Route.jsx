@@ -38,7 +38,7 @@ function RouteDevice() {
                   <div className="back-route">
                         <i className="fa-solid fa-arrow-left text-primary" onClick={()=>navigate(-1)}></i>
                   </div>
-                <div className="filter w-100 d-flex flex-wrap align-items-center gap-3 justify-content-center">
+                <div className="filter w-100 d-flex flex-wrap align-items-center gap-3">
                       <div className="coolinput">
                             <label htmlFor="input" className="text">Mashina raqami</label>
                             <input 
