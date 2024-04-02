@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/postmodal.css'
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 function Post( { closePostModal , getDevices }) {
 
@@ -25,7 +26,8 @@ function Post( { closePostModal , getDevices }) {
                               'Authorization' : 'Bearer' + ' ' + token
                         },
                         
-                  }).then(data => {console.log(data) ; closePostModal() ; getDevices()}).catch(err => console.log(err))
+                  }).then(data => {toast.success('Qurilma muvaffaqiyatli qo`shildi!') ; closePostModal() ; getDevices()})
+                  .catch(err => toast.error('Xatolik yuz berdi ! Qayta urining!'))
       }
 
 

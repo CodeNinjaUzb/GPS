@@ -3,7 +3,7 @@ import '../../styles/reportEvents.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-function EventDevice() {
+function EventsDevice() {
 
       const token = localStorage.getItem('token')
       const navigate = useNavigate()
@@ -29,7 +29,7 @@ function EventDevice() {
                               'Authorization' : 'Bearer' + ' ' + token
                         },
                         
-                  }).then(data => {console.log(data) ; setEventData(data.data)}).catch(err => console.log(err))
+                  }).then(response => {console.log(response) ; setEventData(response.data)}).catch(err => console.log(err))
       }
 
       return (
@@ -96,4 +96,4 @@ function EventDevice() {
       );
 }
 
-export default EventDevice;
+export default EventsDevice;

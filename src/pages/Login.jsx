@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../styles/login.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 function Login() {
 
@@ -22,13 +23,13 @@ function Login() {
               })
               .then((data) => {
                 if (data?.status === 200) {
-                  console.log(data);
+                  toast.success('Tizimga muvaffaqiyatli kirildi !')
                   localStorage.setItem("token", data?.data?.accessToken);
                   navigate("/");
                 }
               })
               .catch((err) => {
-                console.log(err);
+                toast.error('Xatolik yuz berdi ! Qaytadan urining !')
                 if (err?.message == "Network Error") {
                   console.log('network error');
                   return;

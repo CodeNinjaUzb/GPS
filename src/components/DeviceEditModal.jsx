@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/editmodal.css'
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 
 
@@ -28,7 +29,8 @@ function Edit({closeEditModal , getDevices , info}) {
                               'Authorization' : 'Bearer' + ' ' + token
                         },
                         
-                  }).then(data => {console.log(data) ; closeEditModal() ; getDevices()}).catch(err => console.log(err))
+                  }).then(data => {toast.success('Qurilma muvaffaqiyatli tahrirlandi !') ; closeEditModal() ; getDevices()})
+                  .catch(err => toast.error('Xatolik yuz berdi ! Qaytadan urining !'))
       }    
 
       return (

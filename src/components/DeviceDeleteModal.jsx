@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/deleteModal.css'
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 function Delete({closeDeleteModal , getDevices , info}) {
 
@@ -11,7 +12,8 @@ function Delete({closeDeleteModal , getDevices , info}) {
                   headers : {
                         'Authorization' : 'Bearer' + ' ' + token
                   }
-            }).then(data => {console.log(data); getDevices() ; closeDeleteModal()}).catch(err => console.log(err))
+            }).then(data => {toast.success('Qurilma muvaffaqiyatli o`chirildi !'); getDevices() ; closeDeleteModal()})
+            .catch(err => toast.error('Xatolik yuz berdi ! Qaytadan urining !'))
       }
 
   return (
