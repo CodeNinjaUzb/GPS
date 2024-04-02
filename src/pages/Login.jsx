@@ -3,6 +3,7 @@ import '../styles/login.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { Input } from 'antd';
 
 function Login() {
 
@@ -50,24 +51,24 @@ function Login() {
                   <form className='d-flex flex-column gap-4'>
                         <div className="email">
                               <label className='text-bolder'>Username</label>
-                              <input
+                              <Input
                                     onChange={(e) => handle(e)}
                                     id="email"
                                     value={data.email}
                                     type="text"
-                                    className="form-control input_login"
+                                    className="input_login"
                                     placeholder="Username"
                               />
                         </div>
                         <div className="password">
                               <label className='text-bolder'>Password</label>
-                              <input
+                              <Input.Password
                                     onChange={(e) => handle(e)}
                                     id="password"
                                     value={data.password}
                                     type="password"
                                     placeholder="Password"
-                                    className="form-control input_password"
+                                    className="input_password"
                               />
                         </div>
                         <button type="submit" className="btn btn-primary w-100" onClick={submit}>
