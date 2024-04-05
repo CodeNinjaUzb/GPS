@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../styles/reportEvents.css'
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
@@ -10,11 +10,21 @@ function StopDevice() {
       const navigate = useNavigate()
 
       const [stopData , setStopData] = useState([])
+      const [allDevices , setAllDevices] = useState([])
       const [data , setData] = useState({
-            'carNumber' : '',
+            'name' : '',
             'startDate' : '',
             'endDate' : ''
       })
+            
+      useEffect(()=>{
+        axios.get('/Devices/GetAll' , {
+              headers : {
+                  'ngrok-skip-browser-warning' : 'skip-browser-warning',
+                  'Authorization' : 'Bearer' + ' ' + token
+              }
+        }).then(data => setAllDevices(data.data)).catch(err => toast.error('Xatolik yuz berdi ! Qaytadan urining !'))
+      },[])
 
       function handle(e) {
             const newData = { ...data };
@@ -23,7 +33,7 @@ function StopDevice() {
       } 
 
       function getStops () {
-            axios.get(`GPS/GetStops?fromDate=${data.startDate}&toDate=${data.endDate}&carNumber=${data.carNumber}`,
+            axios.get(`GPS/GetStops?fromDate=${data.startDate}&toDate=${data.endDate}&name=${data.name}`,
                   {
                         headers : {
                               'Authorization' : 'Bearer' + ' ' + token
@@ -39,16 +49,13 @@ function StopDevice() {
                   </div>
                 <div className="filter flex-wrap d-flex align-items-center gap-3">
                       <div className="coolinput">
-                            <label htmlFor="input" className="text">Mashina raqami</label>
-                            <input 
-                              required
-                              onChange={(e)=>handle(e)}
-                              id='carNumber' 
-                              type="text" 
-                              placeholder="Write here..." 
-                              name="carNumber" 
-                              className="input"  
-                            />
+                            <label htmlFor="input" className="text">Qurilma</label>
+                            <select name="name" id="name" className="dropdown" onChange={(e)=> handle(e)}>
+                              <option>Select an option</option>
+                              {allDevices.map((item) => {return (
+                                    <option>{item.name}</option>
+                              )})}
+                            </select>
                       </div>
                       <div className="cooldatepicker">
                               <label htmlFor="startDay" className='text'>Boshlanish sanasi</label> 

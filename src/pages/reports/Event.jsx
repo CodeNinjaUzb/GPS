@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../styles/reportEvents.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -10,11 +10,21 @@ function EventsDevice() {
       const navigate = useNavigate()
 
       const [eventData , setEventData] = useState([])
+      const [allDevices , setAllDevices] = useState([])
       const [data , setData] = useState({
-            'carNumber' : '',
+            'name' : '',
             'startDate' : '',
             'endDate' : ''
       })
+            
+      useEffect(()=>{
+        axios.get('/Devices/GetAll' , {
+              headers : {
+                  'ngrok-skip-browser-warning' : 'skip-browser-warning',
+                  'Authorization' : 'Bearer' + ' ' + token
+              }
+        }).then(data => setAllDevices(data.data)).catch(err => toast.error('Xatolik yuz berdi ! Qaytadan urining !'))
+      },[])
 
       function handle(e) {
             const newData = { ...data };
@@ -23,7 +33,7 @@ function EventsDevice() {
       } 
 
       function getEvents () {
-             axios.get(`GPS/GetEvents?fromDate=${data.startDate}&toDate=${data.endDate}&carNumber=${data.carNumber}`,
+             axios.get(`GPS/GetEvents?fromDate=${data.startDate}&toDate=${data.endDate}&name=${data.name}`,
                   {
                         headers : {
                               'Authorization' : 'Bearer' + ' ' + token
@@ -40,16 +50,13 @@ function EventsDevice() {
                   </div>
                 <div className="filter flex-wrap d-flex align-items-center gap-3">
                       <div className="coolinput">
-                            <label htmlFor="input" className="text">Mashina raqami</label>
-                            <input 
-                                   required
-                                   onChange={(e)=>handle(e)}
-                                   id='carNumber' 
-                                   type="text" 
-                                   placeholder="Write here..." 
-                                   name="carNumber" 
-                                   className="input"  
-                            />
+                            <label htmlFor="input" className="text">Qurilma</label>
+                            <select name="name" id="name" className="dropdown" onChange={(e)=> handle(e)}>
+                              <option>Select an option</option>
+                              {allDevices.map((item) => {return (
+                                    <option>{item.name}</option>
+                              )})}
+                            </select>
                       </div>
                       <div className="cooldatepicker">
                               <label htmlFor="startDay" className='text'>Boshlanish sanasi</label> 
@@ -67,7 +74,7 @@ function EventsDevice() {
                   <div className="event-table pt-4">
                               <div className="event-table-head bg-primary rounded-2 d-grid pt-1 pb-1">
                                     <div className="head-item d-flex align-items-center justify-content-center">
-                                          <p className='m-0 text-light fw-bold'>Qurilma idsi</p>
+                                          <p className='m-0 text-light fw-bold'>ID</p>
                                     </div>
                                     <div className="head-item d-flex align-items-center justify-content-center">
                                           <p className='m-0 text-light fw-bold'>Xodisa vaqti</p>
@@ -80,7 +87,7 @@ function EventsDevice() {
                                     {eventData.map((item)=>{return(
                                           <div className="event-table-row d-grid rounded-2 pt-1 pb-1 border-1">
                                                 <div className="row-item d-flex align-items-center justify-content-center">
-                                                      <p className="m-0 fw-bold">{item.deviceId}</p>
+                                                      <p className="m-0 fw-bold">{item.id}</p>
                                                 </div>
                                                 <div className="row-item d-flex align-items-center justify-content-center">
                                                       <p className="m-0 fw-bold">{item?.eventTime?.slice(0,10)} {item?.eventTime?.slice(11,19)}</p>

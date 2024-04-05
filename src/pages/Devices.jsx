@@ -39,10 +39,12 @@ function Devices() {
       function getDevices () {
             axios.get('/Devices/GetAll' , {
                   headers : {
-                        'Authorization' : 'Bearer' + ' ' + token
+                        'ngrok-skip-browser-warning' : 'skip-browser-warning',
+                        'Authorization' : 'Bearer' + ' ' + token,
+                        'Accept': 'application/json',
                   }
             })
-                  .then(data => {setDevices(data.data) ; })
+                  .then(data => {setDevices(data.data) ; console.log(data);})
                   .catch(err => toast.error('Xatolik yuz berdi ! Qayta urining !'))
       }
 
@@ -66,9 +68,9 @@ function Devices() {
                   </div>
                   <div className="table overflow-x-auto">
                         <div className="table-head rounded-3 bg-primary d-grid">
-                                    <p className='m-0 text-center text-light fw-bold'>Device ID</p>
-                                    <p className='m-0 text-center text-light fw-bold'>Mashina raqami</p>
-                                    <p className='m-0 text-center text-light fw-bold'>Haydovchi</p>
+                                    <p className='m-0 text-center text-light fw-bold'>IMEI</p>
+                                    <p className='m-0 text-center text-light fw-bold'>Name</p>
+                                    <p className='m-0 text-center text-light fw-bold'>Model</p>
                                     <p className='m-0 text-center text-light fw-bold'>Telefon raqami</p>
                                     <p className='m-0 text-center text-light fw-bold'>Tahrirlash</p>
                         </div>
@@ -76,10 +78,10 @@ function Devices() {
                               {devices.map((item , idx)=>{
                                     return(
                                           <div key={idx} className="table-row border d-grid">
-                                                <p className='m-0 text-center'>{item.deviceId}</p>
-                                                <p className='m-0 text-center'>{item.carNumber}</p>
-                                                <p className='m-0 text-center'>{item.fullName}</p>
-                                                <p className='m-0 text-center'>{item.phoneNumber}</p>
+                                                <p className='m-0 text-center'>{item.uniqueId}</p>
+                                                <p className='m-0 text-center'>{item.name}</p>
+                                                <p className='m-0 text-center'>{item.model}</p>
+                                                <p className='m-0 text-center'>{item.phone}</p>
                                                 <p className='m-0 text-center d-flex align-items-center justify-content-center gap-4'>
                                                       <i onClick={()=>{openEditModal(), getDeviceInfo(item)}} className="fa-solid fa-pen-to-square text-warning"></i>
                                                       <i onClick={()=>{openDeleteModal() , getDeviceInfo(item)}} className="fa-solid fa-trash text-danger"></i>

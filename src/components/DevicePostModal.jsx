@@ -7,10 +7,10 @@ function Post( { closePostModal , getDevices }) {
 
       const token = localStorage.getItem('token')
       const [newDevice , setNewDevice] = useState({
-            'fullName' : '',
-            'phoneNumber' : '',
-            'carNumber' : '',
-            'deviceId' : 0
+            'model' : '',
+            'phone' : '',
+            'name' : '',
+            'uniqueId' : ''
       })
 
       function handle(e) {
@@ -41,15 +41,15 @@ function Post( { closePostModal , getDevices }) {
                         <div className="post-modal-body d-flex flex-wrap align-items-center justify-content-center gap-4">
                               <div className="input">
                                     <div className="coolinput">
-                                          <label htmlFor="input" className="text">Qurilma IDsi:</label>
+                                          <label htmlFor="input" className="text">IMEI:</label>
                                           <input 
                                                 onChange={(e)=> handle(e)} 
-                                                id='deviceId' 
-                                                type="number" 
+                                                id='uniqueId' 
+                                                type="text" 
                                                 placeholder="Write here..." 
                                                 name="input" 
                                                 className="post-input" 
-                                                value={newDevice.deviceId}
+                                                value={newDevice.uniqueId}
                                           />
                                     </div>
                               </div>
@@ -58,12 +58,12 @@ function Post( { closePostModal , getDevices }) {
                                           <label htmlFor="input" className="text">Mashina raqami:</label>
                                           <input 
                                                 onChange={(e)=> handle(e)} 
-                                                id='carNumber' 
+                                                id='name' 
                                                 type="text" 
                                                 placeholder="Write here..." 
                                                 name="input" 
                                                 className="post-input" 
-                                                value={newDevice.carNumber}
+                                                value={newDevice.name}
                                           />
                                     </div>
                               </div>
@@ -72,12 +72,12 @@ function Post( { closePostModal , getDevices }) {
                                           <label htmlFor="input" className="text">Haydovchi:</label>
                                           <input 
                                                 onChange={(e)=> handle(e)} 
-                                                id='fullName' 
+                                                id='model' 
                                                 type="text" 
                                                 placeholder="Write here..." 
                                                 name="input" 
                                                 className="post-input" 
-                                                value={newDevice.fullName}      
+                                                value={newDevice.model}      
                                           />
                                     </div>
                               </div>
@@ -86,12 +86,12 @@ function Post( { closePostModal , getDevices }) {
                                           <label htmlFor="input" className="text">Telefon raqami:</label>
                                           <input 
                                                 onChange={(e)=> handle(e)} 
-                                                id='phoneNumber' 
+                                                id='phone' 
                                                 type="text" 
                                                 placeholder="Write here..." 
                                                 name="input" 
                                                 className="post-input" 
-                                                value={newDevice.phoneNumber}      
+                                                value={newDevice.phone}      
                                           />
                                     </div>
                               </div>

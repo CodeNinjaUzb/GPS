@@ -6,7 +6,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import { BrowserRouter } from 'react-router-dom'
 import axios from 'axios'
 
-axios.defaults.baseURL = 'https://api.sardorsohinazarov.uz/api/';
+axios.defaults.baseURL = 'https://api.sardorsohinazarov.uz/api';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 

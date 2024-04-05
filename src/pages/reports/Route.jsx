@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../styles/reportEvents.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 
 function RouteDevice() {
 
@@ -11,11 +13,21 @@ function RouteDevice() {
 
 
       const [routeData , setRouteData] = useState([])
+      const [allDevices , setAllDevices] = useState([])
       const [data , setData] = useState({
-            'carNumber' : '',
+            'name' : '',
             'startDate' : '',
             'endDate' : ''
       })
+            
+      useEffect(()=>{
+        axios.get('/Devices/GetAll' , {
+              headers : {
+                  'ngrok-skip-browser-warning' : 'skip-browser-warning',
+                  'Authorization' : 'Bearer' + ' ' + token
+              }
+        }).then(data => setAllDevices(data.data)).catch(err => toast.error('Xatolik yuz berdi ! Qaytadan urining !'))
+      },[])
 
       function handle(e) {
             const newData = { ...data };
@@ -24,13 +36,14 @@ function RouteDevice() {
       } 
 
       function getRoute () {
-            axios.get(`GPS/GetRoute?fromDate=${data.startDate}&toDate=${data.endDate}&carNumber=${data.carNumber}`,
+            axios.get(`GPS/GetRoute?fromDate=${data.startDate}&toDate=${data.endDate}&name=${data.name}`,
                   {
                         headers : {
+                              'ngrok-skip-browser-warning' : 'skip-browser-warning',
                               'Authorization' : 'Bearer' + ' ' + token
                         },
                         
-                  }).then(data => {setRouteData(data.data)}).catch(err => toast.error('Xatolik yuz berdi ! Qaytadan urining!'))
+                  }).then(data => {setRouteData(data.data) ; console.log(data.data);}).catch(err => toast.error('Xatolik yuz berdi ! Qaytadan urining!'))
       }
 
       return (
@@ -40,8 +53,14 @@ function RouteDevice() {
                   </div>
                 <div className="filter w-100 d-flex flex-wrap align-items-center gap-3">
                       <div className="coolinput">
-                            <label htmlFor="input" className="text">Mashina raqami</label>
-                            <input 
+                            <label htmlFor="input" className="text">Qurilma</label>
+                            <select name="name" id="name" className="dropdown" onChange={(e)=> handle(e)}>
+                              <option>Select an option</option>
+                              {allDevices.map((item) => {return (
+                                    <option>{item.name}</option>
+                              )})}
+                            </select>
+                            {/* <input 
                               required
                               onChange={(e)=>handle(e)}
                               id='carNumber' 
@@ -49,7 +68,7 @@ function RouteDevice() {
                               placeholder="Write here..." 
                               name="carNumber" 
                               className="input"  
-                            />
+                            /> */}
                       </div>
                       <div className="cooldatepicker">
                               <label htmlFor="startDay" className='text'>Boshlanish sanasi</label> 
@@ -67,7 +86,7 @@ function RouteDevice() {
                   <div className="route-table pt-4">
                               <div className="route-table-head bg-primary rounded-2 d-grid pt-1 pb-1">
                                     <div className="head-item d-flex align-items-center justify-content-center">
-                                          <p className='m-0 text-light fw-bold'>Qurilma</p>
+                                          <p className='m-0 text-light fw-bold'>ID</p>
                                     </div>
                                     <div className="head-item d-flex align-items-center justify-content-center">
                                           <p className='m-0 text-light fw-bold'>Fix Time</p>
@@ -83,10 +102,10 @@ function RouteDevice() {
                                     </div>
                               </div>
                               <div className="route-table-body d-flex flex-column gap-1 pt-1">
-                                    {routeData.map((item)=>{return(
+                                    {routeData?.map((item)=>{return(
                                           <div className="route-table-row d-grid rounded-2 pt-1 pb-1 border-1">
                                                 <div className="row-item d-flex align-items-center justify-content-center">
-                                                      <p className="m-0 fw-bold">{item.deviceId}</p>
+                                                      <p className="m-0 fw-bold">{item.id}</p>
                                                 </div>
                                                 <div className="row-item d-flex align-items-center justify-content-center">
                                                       <p className="m-0 fw-bold">{item.fixTime.slice(0,10)} {item.fixTime.slice(11,19)}</p>

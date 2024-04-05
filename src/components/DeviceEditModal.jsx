@@ -9,10 +9,10 @@ function Edit({closeEditModal , getDevices , info}) {
 
       const token = localStorage.getItem('token')
       const [editDevice , setEditDevice] = useState({
-            'fullName' : '',
-            'phoneNumber' : '',
-            'carNumber' : '',
-            'deviceId' : 0
+            'model' : '',
+            'phone' : '',
+            'name' : '',
+            'uniqueId' : ''
       })
 
       function handle(e) {
@@ -42,25 +42,57 @@ function Edit({closeEditModal , getDevices , info}) {
                               <div className="input">
                                     <div className="coolinput">
                                           <label htmlFor="input" className="text">Devide ID:</label>
-                                          <input id='deviceId' onChange={(e)=>handle(e)} defaultValue={info.deviceId} type="text" placeholder="Write here..." name="input" className="edit-input" />
+                                          <input 
+                                                id='uniqueId' 
+                                                onChange={(e)=>handle(e)} 
+                                                defaultValue={info.uniqueId} 
+                                                type="text" 
+                                                placeholder="Write here..." 
+                                                name="input" 
+                                                className="edit-input" 
+                                          />
                                     </div>
                               </div>
                               <div className="input">
                                     <div className="coolinput">
                                           <label htmlFor="input" className="text">Mashina raqami:</label>
-                                          <input id='carNumber' onChange={(e)=>handle(e)} defaultValue={info.carNumber} type="text" placeholder="Write here..." name="input" className="edit-input" />
+                                          <input 
+                                                id='name'
+                                                onChange={(e)=>handle(e)} 
+                                                defaultValue={info.name} 
+                                                type="text" 
+                                                placeholder="Write here..." 
+                                                name="input" 
+                                                className="edit-input" 
+                                          />
                                     </div>
                               </div>
                               <div className="input">
                                     <div className="coolinput">
                                           <label htmlFor="input" className="text">Haydovchi:</label>
-                                          <input id='fullName' onChange={(e)=>handle(e)} defaultValue={info.fullName} type="text" placeholder="Write here..." name="input" className="edit-input" />
+                                          <input 
+                                                id='model' 
+                                                onChange={(e)=>handle(e)} 
+                                                defaultValue={info.model} 
+                                                type="text" 
+                                                placeholder="Write here..." 
+                                                name="input" 
+                                                className="edit-input" 
+                                          />
                                     </div>
                               </div>
                               <div className="input">
                                     <div className="coolinput">
                                           <label htmlFor="input" className="text">Telefon raqami:</label>
-                                          <input id='phoneNumber' onChange={(e)=>handle(e)} defaultValue={info.phoneNumber} type="text" placeholder="Write here..." name="input" className="edit-input" />
+                                          <input 
+                                                id='phone' 
+                                                onChange={(e)=>handle(e)} 
+                                                defaultValue={info.phone} 
+                                                type="text" 
+                                                placeholder="Write here..." 
+                                                name="input" 
+                                                className="edit-input" 
+                                          />
                                     </div>
                               </div>
                         </div>
