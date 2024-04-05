@@ -41,7 +41,7 @@ function Edit({closeEditModal , getDevices , info}) {
                         <div className="edit-modal-body d-flex flex-wrap align-items-center justify-content-center gap-4">
                               <div className="input">
                                     <div className="coolinput">
-                                          <label htmlFor="input" className="text">Devide ID:</label>
+                                          <label htmlFor="input" className="text">IMEI:</label>
                                           <input 
                                                 id='uniqueId' 
                                                 onChange={(e)=>handle(e)} 
@@ -55,7 +55,7 @@ function Edit({closeEditModal , getDevices , info}) {
                               </div>
                               <div className="input">
                                     <div className="coolinput">
-                                          <label htmlFor="input" className="text">Mashina raqami:</label>
+                                          <label htmlFor="input" className="text">Name:</label>
                                           <input 
                                                 id='name'
                                                 onChange={(e)=>handle(e)} 
@@ -69,7 +69,7 @@ function Edit({closeEditModal , getDevices , info}) {
                               </div>
                               <div className="input">
                                     <div className="coolinput">
-                                          <label htmlFor="input" className="text">Haydovchi:</label>
+                                          <label htmlFor="input" className="text">Model:</label>
                                           <input 
                                                 id='model' 
                                                 onChange={(e)=>handle(e)} 

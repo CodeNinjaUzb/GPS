@@ -23,7 +23,7 @@ function Delete({closeDeleteModal , getDevices , info}) {
                         <h1>Qurilmani o'chirish</h1>
                   </div>
                   <div className="delete-modal-body text-center pt-3">
-                        <h4><span className="text-danger">{info.fullName}</span> qurilmasini o'chirishni hohlaysizmi ?</h4>
+                        <h4><span className="text-danger">{info.name}</span> qurilmasini o'chirishni hohlaysizmi ?</h4>
                   </div>
                   <div className="delete-modal-foot">
                         <div className="btns d-flex justify-content-center align-items-center gap-3">

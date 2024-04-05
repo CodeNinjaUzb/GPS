@@ -55,7 +55,7 @@ function Post( { closePostModal , getDevices }) {
                               </div>
                               <div className="input">
                                     <div className="coolinput">
-                                          <label htmlFor="input" className="text">Mashina raqami:</label>
+                                          <label htmlFor="input" className="text">Name:</label>
                                           <input 
                                                 onChange={(e)=> handle(e)} 
                                                 id='name' 
@@ -69,7 +69,7 @@ function Post( { closePostModal , getDevices }) {
                               </div>
                               <div className="input">
                                     <div className="coolinput">
-                                          <label htmlFor="input" className="text">Haydovchi:</label>
+                                          <label htmlFor="input" className="text">Model:</label>
                                           <input 
                                                 onChange={(e)=> handle(e)} 
                                                 id='model' 

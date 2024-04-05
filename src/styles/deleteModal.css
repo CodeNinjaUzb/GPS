@@ -14,6 +14,9 @@
       width: 400px;
       height: 260px;
 }
+.delete-modal-foot{
+      padding: 45px 0;
+}
 @media screen and (min-width : 576px ) and (max-width : 767px){
       .delete-modal{
             width: 300px !important;
