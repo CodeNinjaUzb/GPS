@@ -44,7 +44,7 @@ function Devices() {
                         'Accept': 'application/json',
                   }
             })
-                  .then(data => {setDevices(data.data) ; console.log(data);})
+                  .then(data => {setDevices(data.data)})
                   .catch(err => toast.error('Xatolik yuz berdi ! Qayta urining !'))
       }
 

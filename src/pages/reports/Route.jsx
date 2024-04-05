@@ -43,7 +43,7 @@ function RouteDevice() {
                               'Authorization' : 'Bearer' + ' ' + token
                         },
                         
-                  }).then(data => {setRouteData(data.data) ; console.log(data.data);}).catch(err => toast.error('Xatolik yuz berdi ! Qaytadan urining!'))
+                  }).then(data => {setRouteData(data.data)}).catch(err => toast.error('Xatolik yuz berdi ! Qaytadan urining!'))
       }
 
       return (
