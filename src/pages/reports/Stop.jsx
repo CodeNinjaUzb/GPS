@@ -36,6 +36,7 @@ function StopDevice() {
             axios.get(`GPS/GetStops?fromDate=${data.startDate}&toDate=${data.endDate}&name=${data.name}`,
                   {
                         headers : {
+                              'ngrok-skip-browser-warning' : 'skip-browser-warning',
                               'Authorization' : 'Bearer' + ' ' + token
                         },
                         
